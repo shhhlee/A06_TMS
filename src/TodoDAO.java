@@ -30,7 +30,8 @@ public class TodoDAO {
             String createdDate = parts.length > 2 ? parts[2] : "";
             String dueDate = parts.length > 3 ? parts[3] : "-";
             boolean canCompleteAfterDue = parts.length > 4 && "가능".equals(parts[4]);
-            tasks.add(new TodoVO(title, isCompleted, createdDate, dueDate, canCompleteAfterDue));
+            String id = parts.length > 5 ? parts[5] : "defaultId";
+            tasks.add(new TodoVO(title, isCompleted, createdDate, dueDate, canCompleteAfterDue,id));
         }
         reader.close();
         return tasks;
